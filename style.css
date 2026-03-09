@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    html.lenis,
+    html.lenis body {
+        height: auto;
+    }
+
+    .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+        overflow: hidden;
+    }
+
+    .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+    }
+
+    body {
+        @apply bg-slate-950 text-slate-100 font-sans antialiased overflow-x-hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-heading tracking-tight;
+    }
+}
+
+@layer utilities {
+    .text-glow {
+        text-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+    }
+
+    .bg-glass {
+        @apply bg-slate-900/50 backdrop-blur-md border border-slate-800;
+    }
+
+    .bg-glass-light {
+        @apply bg-white/70 backdrop-blur-md border border-slate-200;
+    }
+}
+
+canvas#bg-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Horizontal Scroll Container */
+.horizontal-scroll-container {
+    display: flex;
+    width: 400vw;
+    /* 4 sections */
+    will-change: transform;
+}
+
+.horizontal-section {
+    width: 100vw;
+    flex-shrink: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
